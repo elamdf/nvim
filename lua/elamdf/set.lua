@@ -29,3 +29,15 @@ vim.opt.updatetime = 50
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.cmd("set nofoldenable")
+vim.opt.pumheight = 4
+
+
+vim.opt.splitright = true
+vim.opt_global.shortmess:remove("F")
+
+vim.cmd("colorscheme kanagawa")
+

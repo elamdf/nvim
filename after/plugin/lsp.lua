@@ -9,6 +9,8 @@ lsp.ensure_installed({ -- TODO finish for python and c
   'eslint',
   'pyright',
   'rust_analyzer',
+  'clangd',
+  'bufls',
 })
 
 -- Fix Undefined global 'vim'
@@ -21,6 +23,7 @@ lsp.configure('lua-language-server', {
         }
     }
 })
+require'lspconfig'.clangd.setup{}
 
 
 local cmp = require('cmp')
@@ -53,6 +56,7 @@ lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -62,6 +66,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.keymap.set("n", "fs", ":ClangdSwitchSourceHeader<CR>")
+
 end)
 
 lsp.setup()

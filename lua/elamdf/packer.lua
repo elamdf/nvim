@@ -6,16 +6,33 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
+
   use ({
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   })
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use "rebelot/kanagawa.nvim"
+
 
   use ({
 	  'nvim-treesitter/nvim-treesitter',
+
 	  run = ':TSUpdate'
   })
+  use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional
+  },
+  config = function()
+    require("nvim-tree").setup {}
+  end
+}
   use("theprimeagen/harpoon")
   use("mbbill/undotree")
   use("tpope/vim-fugitive")
