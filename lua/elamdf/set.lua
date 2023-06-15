@@ -40,4 +40,3 @@ vim.opt.splitright = true
 vim.opt_global.shortmess:remove("F")
 
 vim.cmd("colorscheme kanagawa")
-
