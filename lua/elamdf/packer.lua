@@ -16,8 +16,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/cmp-nvim-lsp'
-    use "rebelot/kanagawa.nvim"
-    use "kbarrette/mediummode"
+
+    use({ 'kepano/flexoki-neovim', as = 'flexoki' })
+
 
     use({
         "HampusHauffman/block.nvim",

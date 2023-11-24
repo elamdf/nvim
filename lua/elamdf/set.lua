@@ -39,4 +39,4 @@ vim.opt.pumheight = 4
 vim.opt.splitright = true
 vim.opt_global.shortmess:remove("F")
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme flexoki-dark")
