@@ -1,0 +1,6 @@
+require("plugin_confs.fugitive")
+require("plugin_confs.harpoon")
+require("plugin_confs.lsp")
+require("plugin_confs.telescope")
+require("plugin_confs.treesitter")
+require("plugin_confs.undotree")
