@@ -1,54 +1,50 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+return {
 
-    use({
+    {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
+        tag = '0.1.4',
         -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    })
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/cmp-nvim-lsp'
+        dependencies = { { 'nvim-lua/plenary.nvim' } }
+    },
+    'hrsh7th/vim-vsnip',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/cmp-nvim-lsp',
 
-    use({ 'kepano/flexoki-neovim', as = 'flexoki' })
+    { 'kepano/flexoki-neovim', as = 'flexoki' },
 
 
-    use({
+    {
         "HampusHauffman/block.nvim",
         config = function()
             require("block").setup({})
         end,
-    })
+    },
 
 
-    use({
+
+    {
         'nvim-treesitter/nvim-treesitter',
 
-        run = ':TSUpdate'
-    })
-    use {
+        build = ':TSUpdate'
+    },
+    {
         'nvim-tree/nvim-tree.lua',
-        requires = {
+        dependencies = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
         config = function()
             require("nvim-tree").setup {}
         end
-    }
-    use("theprimeagen/harpoon")
-    use("mbbill/undotree")
-    use("tpope/vim-fugitive")
-    use {
+    }, 
+    "theprimeagen/harpoon",
+    "mbbill/undotree",
+    "tpope/vim-fugitive",
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },             -- Required
             { 'williamboman/mason.nvim' },           -- Optional
@@ -66,5 +62,5 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
-    }
-end)
+    },
+}

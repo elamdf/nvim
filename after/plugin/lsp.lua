@@ -10,7 +10,6 @@ lsp.ensure_installed({ -- TODO finish for python and c
   'pyright',
   'rust_analyzer',
   'clangd',
-  'bufls',
 })
 
 -- Fix Undefined global 'vim'
