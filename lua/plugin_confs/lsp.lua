@@ -17,7 +17,7 @@ lsp.configure('lua-language-server', {
     settings = {
         Lua = {
             diagnostics = {
-                globals = { 'vim' }
+                globals = { 'vim' , 'map'}
             }
         }
     }
@@ -65,7 +65,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>n", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-  vim.keymap.set("n", "fs", ":ClangdSwitchSourceHeader<CR>")
+  vim.keymap.set("n", "<leader>fs", ":ClangdSwitchSourceHeader<CR>")
 
 end)
 

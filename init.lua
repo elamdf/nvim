@@ -17,3 +17,4 @@ require('lazy').setup('plugins')
 
 
 require("elamdf")
+require("plugin_confs")
