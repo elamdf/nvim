@@ -81,13 +81,15 @@ keymap.set("n", "<leader>h9", function() require("harpoon.ui").nav_file(9) end)
 keymap.set("n", "<leader>xr", ":call VrcQuery()<CR>") -- Run REST query
 
 -- LSP
-keymap.set('n', '<leader>gg', '<cmd>lua vim.lsp.buf.hover()<CR>')
+keymap.set('n', 'K',  ":Lspsaga hover_doc<CR>")
+--keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+--keymap.set('n', '<leader>rr',  ":Lspsaga rename<CR>")
 keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap.set('n', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
 keymap.set('v', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
@@ -97,6 +99,8 @@ keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 keymap.set('n', '<leader>tr', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 keymap.set('i', '<C-Space>', '<cmd>lua vim.lsp.buf.completion()<CR>')
+-- all workspace diagnostics
+keymap.set("n", "<leader>aa", vim.diagnostic.setqflist)
 
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
@@ -120,3 +124,5 @@ keymap.set("n", '<leader>de', function() require('telescope.builtin').diagnostic
 
 -- fugitive
 keymap.set("n", "<leader>gs", vim.cmd.Git)
+keymap.set("n", "<leader>gm", function() require('telescope').extensions.gitmoji.gitmoji();end)
+

@@ -4,5 +4,5 @@ return {
   'tpope/vim-fugitive',
   branch = 'master',
   event = 'VeryLazy',
-}
 
+}
