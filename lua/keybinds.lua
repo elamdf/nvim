@@ -25,13 +25,15 @@ vim.keymap.set('n', '<space><space>', '<cmd>FZF<cr>')
 vim.keymap.set('n', '<leader>t', ':set et sw=0 ts=')
 vim.keymap.set('n', '<leader>tt', '<cmd>set et sw=0 ts=4<cr>')
 
-vim.keymap.set('n', '<leader>ba', function() vim.lsp.buf.code_action() end) -- Buffer Actions
-vim.keymap.set('n', '<leader>bd', function() vim.lsp.buf.definition() end) -- Buffer Definition
-vim.keymap.set('n', '<leader>be', function() vim.lsp.buf.declaration() end) -- Buffer dEclaration
+vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end) -- Buffer Actions
+vim.keymap.set('n', '<leader>gd', function() vim.lsp.buf.definition() end) -- Buffer Definition
+vim.keymap.set('n', '<leader>ge', function() vim.lsp.buf.declaration() end) -- Buffer dEclaration
+vim.keymap.set('n', '<leader>gi', function() vim.lsp.buf.implementation() end) -- Buffer implementation
 vim.keymap.set('n', '<leader>bf', function() vim.lsp.buf.format {} end) -- Buffer Format
 vim.keymap.set('n', '<leader>bh', function() vim.lsp.buf.hover() end) -- Buffer Hover
 vim.keymap.set('n', '<leader>bp', function() vim.diagnostic.goto_next() end) -- Buffer Problem
-vim.keymap.set('n', '<leader>br', function() vim.lsp.buf.references() end) -- Buffer References
+vim.keymap.set('n', '<leader>gr', function() vim.lsp.buf.references() end) -- Buffer References
+vim.keymap.set('n', '<leader>gs', function() vim.lsp.buf.signature_help() end) -- Buffer signature 
 
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
@@ -50,10 +52,9 @@ keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>") -- find file in file expl
 
 -- LSP
 keymap.set('n', 'K',  ":Lspsaga hover_doc<CR>")
---keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-keymap.set('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-keymap.set('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+
+keymap.set("n", "<leader>mc", require("telescope").extensions.metals.commands)
+
+
+-- fugitive
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
