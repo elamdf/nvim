@@ -1,4 +1,3 @@
--- Set leader key to space
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
@@ -30,6 +29,7 @@ vim.keymap.set('n', '<leader>gd', function() vim.lsp.buf.definition() end) -- Bu
 vim.keymap.set('n', '<leader>ge', function() vim.lsp.buf.declaration() end) -- Buffer dEclaration
 vim.keymap.set('n', '<leader>gi', function() vim.lsp.buf.implementation() end) -- Buffer implementation
 vim.keymap.set('n', '<leader>bf', function() vim.lsp.buf.format {} end) -- Buffer Format
+vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end) -- Buffer Format
 vim.keymap.set('n', '<leader>bh', function() vim.lsp.buf.hover() end) -- Buffer Hover
 vim.keymap.set('n', '<leader>bp', function() vim.diagnostic.goto_next() end) -- Buffer Problem
 vim.keymap.set('n', '<leader>gr', function() vim.lsp.buf.references() end) -- Buffer References

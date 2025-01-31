@@ -39,12 +39,30 @@ return require('lazy').setup({
   -- fuzzy finder
   { "junegunn/fzf", build = "./install --bin" },
 
+  -- custom lsp stuff
+    {
+    "nvimtools/none-ls.nvim",
+    ft = {"python"},
+    opts = function()
+      return require "configs.none-ls"
+    end,
+  },
+
   -- language servers
   { -- automatically download lang servers
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
-    end
+    end,
+    opts = function()
+      ensure_installed = {
+        "black",
+        "debugpy",
+        "mypy",
+        "ruff-lsp",
+        "pyright",
+      }
+      end
   },
 
   { -- configure lang servers
@@ -58,7 +76,7 @@ return require('lazy').setup({
         },
         config = function()
           require("mason-lspconfig").setup {
-              ensure_installed = { "rust_analyzer" },
+              ensure_installed = { "rust_analyzer", "ruff_lsp" , "pyright", "ruff-lsp"},
           }
         end
       },
@@ -281,21 +299,6 @@ return require('lazy').setup({
 
   -- LaTeX
   'lervag/vimtex',
-
-  -- null-ls
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { { 'nvim-lua/plenary.nvim' } },
-    config = function()
-      require("null-ls").setup({
-        sources = {
-          -- require("null-ls").builtins.diagnostics.vale,
-          require("null-ls").builtins.formatting.black,
-          require("null-ls").builtins.formatting.isort,
-        },
-      })
-    end,
-  },
 
   -- scala does its own thing for some reason
   {

@@ -46,4 +46,7 @@ opt('o', 'foldlevelstart', 99)                       -- no fold closed
 -- Search Settings
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.wrap = true
+
+vim.wo.relativenumber = true
 
