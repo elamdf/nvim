@@ -38,6 +38,13 @@ return require('lazy').setup({
 
   -- fuzzy finder
   { "junegunn/fzf", build = "./install --bin" },
+  -- theme
+  {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
+},
 
   -- custom lsp stuff
     {
@@ -47,6 +54,17 @@ return require('lazy').setup({
       return require "configs.none-ls"
     end,
   },
+
+  -- rsync so I can work on scratch
+  {
+      'OscarCreator/rsync.nvim',
+      build = 'make',
+      dependencies = 'nvim-lua/plenary.nvim',
+      opts = function()
+          return require "configs.rsync"
+      end,
+    },
+
 
   -- language servers
   { -- automatically download lang servers
@@ -306,8 +324,9 @@ return require('lazy').setup({
     dependencies = { "nvim-lua/plenary.nvim" }
   },
 
+
     "theprimeagen/harpoon",
-      'tpope/vim-commentary',
+    'tpope/vim-commentary',
 })
 
 -- vim: et ts=2 sw=0

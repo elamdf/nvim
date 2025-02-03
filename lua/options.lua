@@ -50,3 +50,5 @@ vim.wrap = true
 
 vim.wo.relativenumber = true
 
+vim.cmd[[colorscheme tokyonight]]
+
